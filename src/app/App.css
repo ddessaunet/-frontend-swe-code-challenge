@@ -44,6 +44,12 @@ button {
   color: #2679d9;
 }
 
+.disabledButton {
+  font-style: italic;
+  color: #8c98a6;
+  cursor: not-allowed;
+}
+
 .countriesText {
   padding: 10px;
 }
@@ -53,9 +59,4 @@ button {
   padding: 10px;
   border: 1px solid lightgrey;
   height: 100%;
-}
-
-.arrowButton {
-  cursor: pointer;
-  user-select: none;
 }

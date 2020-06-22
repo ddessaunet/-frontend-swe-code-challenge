@@ -21,6 +21,8 @@ function CountriesList(props) {
   return (
     <ul className="countriesList">
       {data.Country.map((country, idx) => {
+        const isCountrySelected = props.selectedCountry !== country.name;
+
         return (
           <li className="countriesItem" key={country._id}>
             <div className="countryNameContainer">
@@ -28,14 +30,13 @@ function CountriesList(props) {
               <div className="countriesText">{country.name}</div>
             </div>
 
-            {props.selectedCountry !== country.name && (
-              <button
-                onClick={() => props.setSelectedCountry(country.name)}
-                className="primaryButton"
-              >
-                Select
-              </button>
-            )}
+            <button
+              onClick={() => props.setSelectedCountry(country.name)}
+              className={isCountrySelected ? "primaryButton" : "disabledButton"}
+              disabled={!isCountrySelected}
+            >
+              {isCountrySelected ? "Select" : "Selected"}
+            </button>
           </li>
         );
       })}
