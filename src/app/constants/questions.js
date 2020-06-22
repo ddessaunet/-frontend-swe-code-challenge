@@ -1,4 +1,4 @@
-const questions = [
+const countries = [
   "Which element appears eighth on the periodic table?",
   "What is the capital of Iceland?",
   "What year saw the founding of the Michelin tire company?",
@@ -41,4 +41,4 @@ const questions = [
   'What regular character did Larry David always voice on the TV show "Seinfeld", even after he left the show?',
 ];
 
-export default questions;
+export default countries;

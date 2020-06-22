@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <h1>Trivia!</h1>
-      <div className="questionsContainer">
+      <div className="countriesContainer">
         <QuestionsList />
         <SelectionControl />
       </div>

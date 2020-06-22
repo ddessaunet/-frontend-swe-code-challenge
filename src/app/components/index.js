@@ -1,4 +1,4 @@
-import QuestionsList from "./QuestionsList";
+import QuestionsList from "./CountriesList";
 import SelectionControl from "./SelectionControl";
 
 export { QuestionsList, SelectionControl };

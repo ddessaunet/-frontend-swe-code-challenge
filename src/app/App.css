@@ -2,23 +2,23 @@ body {
   margin: 20px;
 }
 
-.questionsContainer {
+.countriesContainer {
   display: flex;
 }
 
-.questionList {
+.countriesList {
   list-style: none;
   padding: 0px;
 }
 
-.questionItem {
+.countriesItem {
   margin: 5px;
   border: 1px solid lightgrey;
   display: flex;
   cursor: pointer;
 }
 
-.questionNumber {
+.countriesNumber {
   background-color: lightgrey;
   color: #fff;
   width: 25px;
@@ -26,7 +26,7 @@ body {
   text-align: center;
 }
 
-.questionText {
+.countriesText {
   padding: 10px;
 }
 

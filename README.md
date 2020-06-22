@@ -8,7 +8,7 @@ You are given 5 days for this challenge. It is perfectly OK to submit an incompl
 
 ### Your mission
 
-This project displays a list of trivia questions with two arrow buttons to the right.
+This project displays a list of trivia countries with two arrow buttons to the right.
 Some basic styling is applied, and all styles live in the App.css file. You will find the project's top-level component in App.js.
 
 The challenge will be to add the following functionality to this React app. Please complete these items in order:
