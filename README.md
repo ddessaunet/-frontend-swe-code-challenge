@@ -1,4 +1,4 @@
-## Frontend Software Engineer Code Challenge, Finalis
+## Finalis' Frontend Software Engineer code challenge
 
 Welcome to the Finalis' Frontend code challenge!
 
@@ -18,18 +18,17 @@ We already have the countries list UI, and we ask you to:
 
 1. Develop a country search engine, which filters the main list of countries as a minimum according to the following 3 parameters: name, capital and subregion. This search engine should be activated automatically after typing at least 3 letters. It must have a delay of 1 second before executing the search.
 
-2. When clicking on the "Details" button for each country in the main list, a summary dropdown box of the country must be displayed indicating its region, sub-region and capital. This box should be displayed under the row of the country.
+2. When clicking on the down-arrow button of a country in the main list, a summary dropdown box must be displayed indicating its region, sub-region and capital. This box should be displayed as an extension of the row.
 
-3. When clicking on a country in the main list, the user should be redirected to a details page, in which the name of the country, its top-level domain, its region, sub-region, timezone, currency in which it is marketed and the languages spoken. This detail page should allow the user to return to the list of countries.
-
-Some basic styling is applied, and all styles live in the `src/app/App.css` file. You will find the project's top-level component in `src/app/App.js`.
+3. When clicking on a country in the main list, the user should be redirected to a "Country details" UI, in which the name of the country, its top-level domain, its region, sub-region, timezone, currency in which it is marketed and the languages spoken. This detail page should allow the user to return to the list of countries.
 
 ### Some tech indications
 
 - All the API documentation can be found by clicking on the "Docs" tab of the [API GraphQL playground](https://countries-274616.ew.r.appspot.com/?query=query%20%7B%0A%09Country%20%7B%0A%20%20%20%20name%0A%20%20%20%20%23%20check%20the%20docs%20for%20more%20info%0A%20%20%7D%0A%7D%0A)
+- Some basic styling is applied, and all styles live in the `src/app/App.css` file. You will find the project's top-level component in `src/app/App.js`.
 - Please manage in memory all the data related to the country search engine.
-- Please use [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for developing the "Country details" UI as an own-url section.
-- When accessing the details UI of a country, you must call the queries of `Currency`,`Timezone` and `Region` of the GraphQL API.
+- Please use [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for constructing the "Country details" UI as an own-url section.
+- Consider calling the queries `Currency`,`Timezone` and `Region` of the [Countries GraphQL API](https://github.com/lennertVanSever/graphcountries) for the "Country details" UI data injection.
 
 ### Running the app locally
 
