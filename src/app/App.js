@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./App.css";
-import { QuestionsList, SelectionControl } from "./components";
+import { CountriesList, SelectionControl } from "./components";
 
 function App() {
   return (
     <div>
       <h1>Trivia!</h1>
       <div className="countriesContainer">
-        <QuestionsList />
+        <CountriesList />
         <SelectionControl />
       </div>
     </div>
