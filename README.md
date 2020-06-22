@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend Software Engineer Code Challenge, Finalis
 
-## Available Scripts
+Welcome to the Finalis' Frontend code challenge!
 
-In the project directory, you can run:
+You are given 5 days for this challenge. It is perfectly OK to submit an incomplete solution! We are not looking for a 100% finished app, just to know how your coding skills and practices are 😁
 
-### `yarn start`
+### Context
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Your mission
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This project displays a list of trivia questions with two arrow buttons to the right.
+Some basic styling is applied, and all styles live in the App.css file. You will find the project's top-level component in App.js.
 
-### `yarn test`
+The challenge will be to add the following functionality to this React app. Please complete these items in order:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Add the ability to click on an item in the trivia list to select that item. You can only select one item at a time. The selected item should have a black border and a black background behind the list number.
 
-### `yarn build`
+2. Add functionality to the existing arrow buttons so that clicking the up arrow will select the previous item in the trivia list, and clicking the down arrow will select the next item in the trivia list. If the first or last item in the list is selected, and the arrow is pressed that would make the selection go 'out of bounds', we should just leave the selection where it is.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Add keyboard functionality to the selection. Allow the user to use the up and down arrow keys on the keyboard to change the selected item in the trivia list. This should behave similar to step 2.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4. Add scrolling functionality to the selection. If the user uses the keyboard or arrow buttons to select an item that is currently off the screen, scroll the screen to keep the selected item in view.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the app locally
 
-### `yarn eject`
+There's an already configured React app on this repository. To get it up and running on your local enviorment you just have to:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone this repo in your machine.
+2. Install the app dependencies `yarn` or `npm install`.
+3. Start the app by running `yarn start` or `npm start`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Considerations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- We do not expect 'perfect' code or 100% completion. We are looking for a functional solution that displays familiarity with React and API management.
+- Please try to commit your changes. Its important for us to have a consistent Git commit history, easy to follow and understand.
+- Try to write easily to understood and communicative code (eg. comments, variable names, etc).
+- Please adjust or add any styling as necessary to the App.css file, but styling is not the focus of this challenge.
+- Feel free to modify the existing code or component structure as much or as little as you see fit.
+- You are welcome to use the internet to look up anything you need to complete the challenge.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Useful resources
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [React documentation](https://reactjs.org/)
+- [GraphQL documentation](https://graphql.org/)
+- [Apollo GraphQL documentation](https://www.apollographql.com/)
+- [Apollo Client documentation](https://www.apollographql.com/docs/react/)
+- [Countries API code and docs](https://github.com/lennertVanSever/graphcountries)
