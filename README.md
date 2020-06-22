@@ -12,7 +12,7 @@ We are looking for an extension of our deal-administration platform which allows
 
 ### Your mission
 
-You will be in charge of developing the main layout of the client-side of the extension.
+You are in charge of coding the main layout of the client-side of this new extension.
 
 We already have the countries list UI, and we ask you to:
 
