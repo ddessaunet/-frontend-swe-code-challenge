@@ -6,20 +6,29 @@ You are given 5 days for this challenge. It is perfectly OK to submit an incompl
 
 ### Context
 
+Finalis is a modern broker-dealer and deal tech platform for investment bankers, placement agents, and fintechs. We give our customers a complete web app composed mainly by 2 parts: a compliance and supervisory platform and a deal-administration platform, integrated with a VDR and Q&A section.
+
+We are looking for an extension of our deal-administration platform which allows our clients to select among multiple options, to which countries their deals are subscribed.
+
 ### Your mission
 
-This project displays a list of trivia countries with two arrow buttons to the right.
-Some basic styling is applied, and all styles live in the App.css file. You will find the project's top-level component in App.js.
+You will be in charge of developing the main layout of the client-side of the extension.
 
-The challenge will be to add the following functionality to this React app. Please complete these items in order:
+We already have the countries list UI, and we ask you to:
 
-1. Add the ability to click on an item in the trivia list to select that item. You can only select one item at a time. The selected item should have a black border and a black background behind the list number.
+1. Develop a country search engine, which filters the main list of countries as a minimum according to the following 3 parameters: name, capital and subregion. This search engine should be activated automatically after typing at least 3 letters. It must have a delay of 1 second before executing the search.
 
-2. Add functionality to the existing arrow buttons so that clicking the up arrow will select the previous item in the trivia list, and clicking the down arrow will select the next item in the trivia list. If the first or last item in the list is selected, and the arrow is pressed that would make the selection go 'out of bounds', we should just leave the selection where it is.
+2. When clicking on the "Details" button for each country in the main list, a summary dropdown box of the country must be displayed indicating its region, sub-region and capital. This box should be displayed under the row of the country.
 
-3. Add keyboard functionality to the selection. Allow the user to use the up and down arrow keys on the keyboard to change the selected item in the trivia list. This should behave similar to step 2.
+3. When clicking on a country in the main list, the user should be redirected to a details page, in which the name of the country, its top-level domain, its region, sub-region, timezone, currency in which it is marketed and the languages spoken. This detail page should allow the user to return to the list of countries.
 
-4. Add scrolling functionality to the selection. If the user uses the keyboard or arrow buttons to select an item that is currently off the screen, scroll the screen to keep the selected item in view.
+Some basic styling is applied, and all styles live in the `src/app/App.css` file. You will find the project's top-level component in `src/app/App.js`.
+
+### Some tech indications
+
+- All the API documentation can be found by clicking on the "Docs" tab of the [API GraphQL playground](https://countries-274616.ew.r.appspot.com/?query=query%20%7B%0A%09Country%20%7B%0A%20%20%20%20name%0A%20%20%20%20%23%20check%20the%20docs%20for%20more%20info%0A%20%20%7D%0A%7D%0A)
+- Please manage in memory all the data related to the country search engine.
+- When accessing the details UI of a country, you must call the queries of `Currency`,`Timezone` and `Region` of the GraphQL API.
 
 ### Running the app locally
 

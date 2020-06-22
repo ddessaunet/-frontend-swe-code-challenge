@@ -5,7 +5,11 @@ import { gql } from "apollo-boost";
 const GET_CONTRIES = gql`
   query GET_CONTRIES_QUERY {
     Country {
+      _id
       name
+      subregion {
+        name
+      }
     }
   }
 `;
@@ -18,12 +22,19 @@ function CountriesList() {
 
   return (
     <ul className="countriesList">
-      {data.Country.map((country, idx) => (
-        <li className="countriesItem" key={idx}>
-          <div className="countriesNumber">{idx + 1}</div>
-          <div className="countriesText">{country.name}</div>
-        </li>
-      ))}
+      {data.Country.map((country, idx) => {
+        console.log({ country });
+
+        return (
+          <li className="countriesItem" key={country._id}>
+            <div className="countriesNumber">{idx + 1}</div>
+            <div className="countriesText">{country.name}</div>
+            <div className="countriesText">
+              {country.subregion && country.subregion.name}
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 }
