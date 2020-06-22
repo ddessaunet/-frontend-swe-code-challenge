@@ -1,6 +1,6 @@
 import React from "react";
 
-import questions from "../utils/constants/questions";
+import questions from "../constants/questions";
 
 function QuestionList() {
   return (
