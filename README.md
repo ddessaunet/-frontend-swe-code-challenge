@@ -28,6 +28,7 @@ Some basic styling is applied, and all styles live in the `src/app/App.css` file
 
 - All the API documentation can be found by clicking on the "Docs" tab of the [API GraphQL playground](https://countries-274616.ew.r.appspot.com/?query=query%20%7B%0A%09Country%20%7B%0A%20%20%20%20name%0A%20%20%20%20%23%20check%20the%20docs%20for%20more%20info%0A%20%20%7D%0A%7D%0A)
 - Please manage in memory all the data related to the country search engine.
+- Please use [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for developing the "Country details" UI as an own-url section.
 - When accessing the details UI of a country, you must call the queries of `Currency`,`Timezone` and `Region` of the GraphQL API.
 
 ### Running the app locally
@@ -53,4 +54,5 @@ There's an already configured React app on this repository. To get it up and run
 - [GraphQL documentation](https://graphql.org/)
 - [Apollo GraphQL documentation](https://www.apollographql.com/)
 - [Apollo Client documentation](https://www.apollographql.com/docs/react/)
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Countries API code and docs](https://github.com/lennertVanSever/graphcountries)
