@@ -54,5 +54,5 @@ There's an already configured React app on this repository. To get it up and run
 - [GraphQL documentation](https://graphql.org/)
 - [Apollo GraphQL documentation](https://www.apollographql.com/)
 - [Apollo Client documentation](https://www.apollographql.com/docs/react/)
-- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [React Router documentation](https://reacttraining.com/react-router/web/guides/quick-start)
 - [Countries API code and docs](https://github.com/lennertVanSever/graphcountries)
