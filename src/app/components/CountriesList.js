@@ -7,31 +7,35 @@ const GET_CONTRIES = gql`
     Country {
       _id
       name
-      subregion {
-        name
-      }
     }
   }
 `;
 
-function CountriesList() {
+function CountriesList(props) {
   const { loading, error, data } = useQuery(GET_CONTRIES);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading countries...</p>;
+
+  if (error) return <p>Error trying to fetch countries data :(</p>;
 
   return (
     <ul className="countriesList">
       {data.Country.map((country, idx) => {
-        console.log({ country });
-
         return (
           <li className="countriesItem" key={country._id}>
-            <div className="countriesNumber">{idx + 1}</div>
-            <div className="countriesText">{country.name}</div>
-            <div className="countriesText">
-              {country.subregion && country.subregion.name}
+            <div className="countryNameContainer">
+              <div className="countriesNumber">{idx + 1}</div>
+              <div className="countriesText">{country.name}</div>
             </div>
+
+            {props.selectedCountry !== country.name && (
+              <button
+                onClick={() => props.setSelectedCountry(country.name)}
+                className="primaryButton"
+              >
+                Select
+              </button>
+            )}
           </li>
         );
       })}
