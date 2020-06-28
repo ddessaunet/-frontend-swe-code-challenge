@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^3.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
@@ -36,8 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint *.js **/*.js",
-    "pretty": "prettier --write \"src/**/*.js\"",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "precommit": "lint-staged && npm test"
   },
   "eslintConfig": {
@@ -49,10 +49,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "npm run lint",
-      "npm run pretty",
-      "git add"
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
     ]
   },
   "browserslist": {
