@@ -6,11 +6,11 @@ import CountryDetails from './views/CountryDetail/CountryDetails';
 
 import './App.css';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Router>
       <Switch>
-        <Route path="/details">
+        <Route path="/details/:name">
           <CountryDetails />
         </Route>
         <Route exact path="/">
@@ -19,6 +19,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

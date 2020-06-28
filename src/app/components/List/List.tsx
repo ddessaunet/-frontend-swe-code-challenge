@@ -1,6 +1,5 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   CountriesItems,
@@ -11,36 +10,30 @@ import {
   CountryButton
 } from './styles';
 
-const GET_CONTRIES = gql`
-  query GET_CONTRIES_QUERY {
-    Country {
-      _id
-      name
-    }
-  }
-`;
+const List = ({ data, selectedCountry, setSelectedCountry }: any): JSX.Element => {
+  const [countries, setCountries] = React.useState([]);
 
-function List(props: any) {
-  const { loading, error, data } = useQuery(GET_CONTRIES);
-
-  if (loading) return <p>Loading countries...</p>;
-
-  if (error) return <p>Error trying to fetch countries data :(</p>;
+  useEffect(() => {
+    console.log(data);
+    setCountries(data);
+  }, [data]);
 
   return (
     <CountriesItems>
-      {data.Country.map((country: any, idx: any) => {
-        const isCountrySelected = props.selectedCountry !== country.name;
+      {countries?.map((country: any, idx: any) => {
+        const isCountrySelected = selectedCountry !== country.name;
 
         return (
           <CountryItem key={country._id}>
             <CountryNameContainer>
               <CountryNumber>{idx + 1}</CountryNumber>
-              <CountryText>{country.name}</CountryText>
+              <Link to={`/details/${country.name}`}>
+                <CountryText>{country.name}</CountryText>
+              </Link>
             </CountryNameContainer>
 
             <CountryButton
-              onClick={() => props.setSelectedCountry(country.name)}
+              onClick={() => setSelectedCountry(country.name)}
               disabled={!isCountrySelected}
             >
               {isCountrySelected ? 'Select' : 'Selected'}
@@ -50,6 +43,6 @@ function List(props: any) {
       })}
     </CountriesItems>
   );
-}
+};
 
 export default List;
