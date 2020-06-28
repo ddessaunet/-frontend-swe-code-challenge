@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Switch from 'react-router-dom/es/Switch';
+import Route from 'react-router-dom/es/Route';
 
-import "./App.css";
-import { CountriesList } from "./components";
+import CountriesList from './views/CountriesList/CountriesList';
+import CountryDetails from './views/CountryDetail/CountryDetails';
+
+import './App.css';
 
 function App() {
-  const [selectedCountry, setSelectedCountry] = useState(undefined);
-
   return (
-    <div>
-      <h1>Country selection</h1>
-
-      <p>
-        Selected country: <b>{selectedCountry || "Nothing selected yet"}</b>
-      </p>
-
-      <p>Please select a country from the list above:</p>
-
-      <div className="countriesContainer">
-        <CountriesList
-          selectedCountry={selectedCountry}
-          setSelectedCountry={setSelectedCountry}
-        />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/details">
+          <CountryDetails />
+        </Route>
+        <Route exact path="/">
+          <CountriesList />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
