@@ -45,6 +45,5 @@ export const CountryButton = styled(Button)`
     font-style: italic;
     color: #8c98a6;
     cursor: not-allowed;
-  }  
+  }
 `;
-

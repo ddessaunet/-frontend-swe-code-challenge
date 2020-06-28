@@ -20,7 +20,7 @@ const GET_CONTRIES = gql`
   }
 `;
 
-function List(props) {
+function List(props: any) {
   const { loading, error, data } = useQuery(GET_CONTRIES);
 
   if (loading) return <p>Loading countries...</p>;
@@ -29,7 +29,7 @@ function List(props) {
 
   return (
     <CountriesItems>
-      {data.Country.map((country, idx) => {
+      {data.Country.map((country: any, idx: any) => {
         const isCountrySelected = props.selectedCountry !== country.name;
 
         return (
