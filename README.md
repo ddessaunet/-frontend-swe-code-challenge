@@ -1,53 +1,49 @@
-## Finalis' Frontend Software Engineer code challenge
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Welcome to the Finalis' Frontend code challenge!
+## Available Scripts
 
-You are given 5 days for this challenge. It is perfectly OK to submit an incomplete solution! We are not looking for a 100% finished app, just to know how your coding skills and practices are 😁
+In the project directory, you can run:
 
-### Context
+### `yarn start`
 
-Finalis is a modern broker-dealer and deal tech platform for investment bankers, placement agents, and fintechs. We give our customers a complete web app composed mainly by 2 parts: a compliance and supervisory platform and a deal-administration platform, integrated with a VDR and Q&A section.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-We are looking for an extension of our deal-administration platform which allows our clients to select among multiple options, to which countries their deals are subscribed.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-### Your mission
+### `yarn test`
 
-You are in charge of coding the main layout of the client-side of this new extension.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-We already have the countries list UI, and we ask you to:
+### `yarn build`
 
-1. Develop a country search engine, which filters the main list of countries as a minimum according to the following 3 parameters: name, capital and subregion. This search engine should be activated automatically after typing at least 3 letters. It must have a delay of 1 second before executing the search.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-2. When clicking on the down-arrow button of a country in the main list, a summary dropdown box must be displayed indicating its region, sub-region and capital. This box should be displayed as an extension of the row.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-3. When clicking on a country in the main list, the user should be redirected to a "Country details" UI, in which the name of the country, its top-level domain, its region, sub-region, timezone, currency in which it is marketed and the languages spoken. This detail page should allow the user to return to the list of countries.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Some tech indications
+### `yarn eject`
 
-- All the API documentation can be found by clicking on the "Docs" tab of the [API GraphQL playground](https://countries-274616.ew.r.appspot.com/?query=query%20%7B%0A%09Country%20%7B%0A%20%20%20%20name%0A%20%20%20%20%23%20check%20the%20docs%20for%20more%20info%0A%20%20%7D%0A%7D%0A)
-- Some basic styling is applied, and all styles live in the `src/app/App.css` file. You will find the project's top-level component in `src/app/App.js`.
-- Please manage in memory all the data related to the country search engine.
-- Please use [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for constructing the "Country details" UI as an own-url section.
-- Consider calling the queries `Currency`,`Timezone` and `Region` of the [Countries GraphQL API](https://github.com/lennertVanSever/graphcountries) for the "Country details" UI data injection.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### Running the app locally
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-There's an already configured React app on this repository. To get it up and running on your local enviorment you just have to:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-1. Clone this repo in your machine.
-2. Install the app dependencies `yarn` or `npm install`.
-3. Start the app by running `yarn start` or `npm start`.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-### Considerations
+## Learn More
 
-- We do not expect 'perfect' code or 100% completion. We are looking for a functional solution that displays familiarity with React and API management.
-- Please try to commit your changes. Its important for us to have a consistent Git commit history, easy to follow and understand.
-- Try to write easily to understood and communicative code (eg. comments, variable names, etc).
-- Please adjust or add any styling as necessary to the App.css file, but styling is not the focus of this challenge.
-- Feel free to modify the existing code or component structure as much or as little as you see fit.
-- You are welcome to use the internet to look up anything you need to complete the challenge.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Useful resources
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Useful resources
 
 - [React documentation](https://reactjs.org/)
 - [GraphQL documentation](https://graphql.org/)
