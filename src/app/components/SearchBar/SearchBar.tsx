@@ -2,14 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDebounce } from '../../utils/DebounceHook';
 
 const SearchBar = ({ searchBy }: any): JSX.Element => {
-  const handleChange = (event: any) => {
-    if (event.target.value.length > 2) {
-      searchBy(event.target.value);
-    } else {
-      searchBy('');
-    }
-  };
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
