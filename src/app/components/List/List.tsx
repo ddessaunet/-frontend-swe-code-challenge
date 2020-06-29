@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// @ts-ignore
-import * as selectn from 'selectn';
-
 import {
   CountriesItems,
   CountryItem,
@@ -11,48 +8,18 @@ import {
   CountryNumber,
   CountryText,
   CountryButton,
-  CountryItemDetails,
-  CountryItemSummary,
-  CountryDetailsLabel,
-  CountryItemRow
+  CountryItemSummary
 } from './styles';
 
 const List = ({
   countriesData,
-  countryDetail,
   selectedCountry,
-  setSelectedCountry
+  setSelectedCountry,
+  getDetailTemplate
 }: any): JSX.Element => {
   const [countries, setCountries] = useState([]);
-  const [details, setDetails] = useState({} as any);
 
   useEffect(() => setCountries(countriesData), [countriesData]);
-  useEffect(() => setDetails(countryDetail), [countryDetail]);
-
-  const getCountryDetail = (isCountrySelected: boolean) => {
-    const region = selectn('subregion.region.name', details);
-    const subregion = selectn('subregion.name', details);
-    const capital = selectn('capital', details);
-    return !isCountrySelected ? (
-      <CountryItemDetails>
-        <h3>Country Details</h3>
-        <CountryItemRow>
-          <CountryDetailsLabel htmlFor="region">Region:</CountryDetailsLabel>
-          <span>{region}</span>
-        </CountryItemRow>
-        <CountryItemRow>
-          <CountryDetailsLabel htmlFor="subregion">Sub-Region:</CountryDetailsLabel>
-          <span>{subregion}</span>
-        </CountryItemRow>
-        <CountryItemRow>
-          <CountryDetailsLabel htmlFor="capital">Capital:</CountryDetailsLabel>
-          <span>{capital}</span>
-        </CountryItemRow>
-      </CountryItemDetails>
-    ) : (
-      ''
-    );
-  };
 
   return (
     <CountriesItems>
@@ -75,7 +42,7 @@ const List = ({
                 {isCountrySelected ? 'Select' : 'Selected'}
               </CountryButton>
             </CountryItemSummary>
-            {getCountryDetail(isCountrySelected)}
+            {getDetailTemplate(isCountrySelected)}
           </CountryItem>
         );
       })}

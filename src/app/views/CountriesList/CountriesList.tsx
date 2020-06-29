@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { List } from '../../components/List';
-
-import { CountriesContainer } from './styles';
-import {useLazyQuery, useQuery} from '@apollo/react-hooks';
-
-import {GET_CONTRIES, GET_COUNTRY_SUMMARY} from './queries';
-import { SearchBar } from '../../components/SearchBar';
-
 // @ts-ignore
 import * as selectn from 'selectn';
+
+import { useLazyQuery, useQuery } from '@apollo/react-hooks';
+
+import { GET_CONTRIES, GET_COUNTRY_SUMMARY } from './queries';
+
+import { List } from '../../components/List';
+import { SearchBar } from '../../components/SearchBar';
+import { Detail } from '../../components/Detail';
+
+import { CountriesContainer } from './styles';
 
 const CountriesList = (): JSX.Element => {
   const [selectedCountry, setSelectedCountry] = useState(undefined);
@@ -17,7 +19,10 @@ const CountriesList = (): JSX.Element => {
   const [searchParams, setSearchParams] = useState('');
 
   const { loading, error, data } = useQuery(GET_CONTRIES);
-  const [getCountrySummary, { data: countrySummaryData }] = useLazyQuery(GET_COUNTRY_SUMMARY, {
+  const [
+    getCountrySummary,
+    { loading: countrySummaryLoading, data: countrySummaryData }
+  ] = useLazyQuery(GET_COUNTRY_SUMMARY, {
     variables: { name: selectedCountry }
   });
 
@@ -50,6 +55,14 @@ const CountriesList = (): JSX.Element => {
     getCountrySummary();
   };
 
+  const getDetail = (isCountrySelected: boolean) => {
+    return !isCountrySelected ? (
+      <Detail countryDetail={countryDetail} loading={countrySummaryLoading} />
+    ) : (
+      ''
+    );
+  };
+
   if (loading) return <p>Loading countries...</p>;
 
   if (error) return <p>Error trying to fetch countries data :(</p>;
@@ -70,9 +83,9 @@ const CountriesList = (): JSX.Element => {
 
       <List
         countriesData={countries}
-        countryDetail={countryDetail}
         selectedCountry={selectedCountry}
         setSelectedCountry={handleCountrySelection}
+        getDetailTemplate={getDetail}
       />
     </CountriesContainer>
   );
