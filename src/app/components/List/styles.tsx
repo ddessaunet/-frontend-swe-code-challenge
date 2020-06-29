@@ -9,6 +9,7 @@ export const CountryItem = styled.li`
   margin: 15px 0;
   border: 1px solid lightgrey;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
 `;
@@ -30,6 +31,8 @@ export const CountryText = styled.div`
 `;
 
 const Button = styled.button`
+  flex-grow: 1;
+  text-align: end;
   background: none;
   color: inherit;
   border: none;
@@ -46,4 +49,19 @@ export const CountryButton = styled(Button)`
     color: #8c98a6;
     cursor: not-allowed;
   }
+`;
+
+export const CountryItemSummary = styled.div`
+  display: flex;
+`;
+
+export const CountryItemDetails = styled.div``;
+
+export const CountryItemRow = styled.div`
+  height: 30px;
+  padding: 5px;
+`;
+export const CountryDetailsLabel = styled.label`
+  font-weight: bold;
+  margin: 10px;
 `;

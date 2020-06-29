@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { List } from '../../components/List';
 
 import { CountriesContainer } from './styles';
-import { useQuery } from '@apollo/react-hooks';
+import {useLazyQuery, useQuery} from '@apollo/react-hooks';
 
-import { GET_CONTRIES } from './queries';
+import {GET_CONTRIES, GET_COUNTRY_SUMMARY} from './queries';
 import { SearchBar } from '../../components/SearchBar';
 
 // @ts-ignore
@@ -13,14 +13,15 @@ import * as selectn from 'selectn';
 const CountriesList = (): JSX.Element => {
   const [selectedCountry, setSelectedCountry] = useState(undefined);
   const [countries, setCountries] = useState([]);
+  const [countryDetail, setCountryDetail] = useState({} as any);
   const [searchParams, setSearchParams] = useState('');
 
   const { loading, error, data } = useQuery(GET_CONTRIES);
+  const [getCountrySummary, { data: countrySummaryData }] = useLazyQuery(GET_COUNTRY_SUMMARY, {
+    variables: { name: selectedCountry }
+  });
 
-  useEffect(() => {
-    console.log(data);
-    setCountries(data?.Country);
-  }, [data]);
+  useEffect(() => setCountries(data?.Country), [data]);
 
   useEffect(() => {
     if (searchParams) {
@@ -38,6 +39,16 @@ const CountriesList = (): JSX.Element => {
       setCountries(data?.Country);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    console.log(countrySummaryData);
+    setCountryDetail(countrySummaryData?.Country[0]);
+  }, [countrySummaryData]);
+
+  const handleCountrySelection = (value: any) => {
+    setSelectedCountry(value);
+    getCountrySummary();
+  };
 
   if (loading) return <p>Loading countries...</p>;
 
@@ -58,9 +69,10 @@ const CountriesList = (): JSX.Element => {
       <SearchBar searchBy={setSearchParams} />
 
       <List
-        data={countries}
+        countriesData={countries}
+        countryDetail={countryDetail}
         selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
+        setSelectedCountry={handleCountrySelection}
       />
     </CountriesContainer>
   );

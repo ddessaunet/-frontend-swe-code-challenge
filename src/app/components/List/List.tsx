@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// @ts-ignore
+import * as selectn from 'selectn';
 
 import {
   CountriesItems,
@@ -7,16 +10,49 @@ import {
   CountryNameContainer,
   CountryNumber,
   CountryText,
-  CountryButton
+  CountryButton,
+  CountryItemDetails,
+  CountryItemSummary,
+  CountryDetailsLabel,
+  CountryItemRow
 } from './styles';
 
-const List = ({ data, selectedCountry, setSelectedCountry }: any): JSX.Element => {
-  const [countries, setCountries] = React.useState([]);
+const List = ({
+  countriesData,
+  countryDetail,
+  selectedCountry,
+  setSelectedCountry
+}: any): JSX.Element => {
+  const [countries, setCountries] = useState([]);
+  const [details, setDetails] = useState({} as any);
 
-  useEffect(() => {
-    console.log(data);
-    setCountries(data);
-  }, [data]);
+  useEffect(() => setCountries(countriesData), [countriesData]);
+  useEffect(() => setDetails(countryDetail), [countryDetail]);
+
+  const getCountryDetail = (isCountrySelected: boolean) => {
+    const region = selectn('subregion.region.name', details);
+    const subregion = selectn('subregion.name', details);
+    const capital = selectn('capital', details);
+    return !isCountrySelected ? (
+      <CountryItemDetails>
+        <h3>Country Details</h3>
+        <CountryItemRow>
+          <CountryDetailsLabel htmlFor="region">Region:</CountryDetailsLabel>
+          <span>{region}</span>
+        </CountryItemRow>
+        <CountryItemRow>
+          <CountryDetailsLabel htmlFor="subregion">Sub-Region:</CountryDetailsLabel>
+          <span>{subregion}</span>
+        </CountryItemRow>
+        <CountryItemRow>
+          <CountryDetailsLabel htmlFor="capital">Capital:</CountryDetailsLabel>
+          <span>{capital}</span>
+        </CountryItemRow>
+      </CountryItemDetails>
+    ) : (
+      ''
+    );
+  };
 
   return (
     <CountriesItems>
@@ -25,19 +61,21 @@ const List = ({ data, selectedCountry, setSelectedCountry }: any): JSX.Element =
 
         return (
           <CountryItem key={country._id}>
-            <CountryNameContainer>
-              <CountryNumber>{idx + 1}</CountryNumber>
-              <Link to={`/details/${country.name}`}>
-                <CountryText>{country.name}</CountryText>
-              </Link>
-            </CountryNameContainer>
-
-            <CountryButton
-              onClick={() => setSelectedCountry(country.name)}
-              disabled={!isCountrySelected}
-            >
-              {isCountrySelected ? 'Select' : 'Selected'}
-            </CountryButton>
+            <CountryItemSummary>
+              <CountryNameContainer>
+                <CountryNumber>{idx + 1}</CountryNumber>
+                <Link to={`/details/${country.name}`}>
+                  <CountryText>{country.name}</CountryText>
+                </Link>
+              </CountryNameContainer>
+              <CountryButton
+                onClick={() => setSelectedCountry(country.name)}
+                disabled={!isCountrySelected}
+              >
+                {isCountrySelected ? 'Select' : 'Selected'}
+              </CountryButton>
+            </CountryItemSummary>
+            {getCountryDetail(isCountrySelected)}
           </CountryItem>
         );
       })}

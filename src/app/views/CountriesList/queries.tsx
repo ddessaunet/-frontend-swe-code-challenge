@@ -12,3 +12,18 @@ export const GET_CONTRIES = gql`
     }
   }
 `;
+
+export const GET_COUNTRY_SUMMARY = gql`
+  query GET_COUNTRY_DETAILS_QUERY($name: String!) {
+    Country(name: $name) {
+      _id
+      capital
+      subregion {
+        name
+        region {
+          name
+        }
+      }
+    }
+  }
+`;

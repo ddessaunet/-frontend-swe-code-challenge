@@ -13,10 +13,7 @@ const CountryDetails = (): JSX.Element => {
     variables: { name }
   });
 
-  useEffect(() => {
-    console.log(data);
-    setCountry(data && data.Country[0]);
-  }, [data]);
+  useEffect(() => setCountry(data?.Country[0]), [data]);
 
   if (loading) return <p>Loading country...</p>;
 
